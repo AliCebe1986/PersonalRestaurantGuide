@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Restaurant Name -->
+        <TextView
+            android:id="@+id/detailsNameTextView"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Rating Bar -->
+        <RatingBar
+            android:id="@+id/detailsRatingBar"
+            android:numStars="5"
+            android:stepSize="1"
+            android:isIndicator="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <!-- Address Label -->
+        <TextView
+            android:id="@+id/detailsAddressLabel"
+            android:text="Address:"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Address Text -->
+        <TextView
+            android:id="@+id/detailsAddressTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Phone Label -->
+        <TextView
+            android:id="@+id/detailsPhoneLabel"
+            android:text="Phone:"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Phone Text -->
+        <TextView
+            android:id="@+id/detailsPhoneTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Description Label -->
+        <TextView
+            android:id="@+id/detailsDescriptionLabel"
+            android:text="Description:"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Description Text -->
+        <TextView
+            android:id="@+id/detailsDescriptionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Tags Label -->
+        <TextView
+            android:id="@+id/detailsTagsLabel"
+            android:text="Tags:"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Tags Text -->
+        <TextView
+            android:id="@+id/detailsTagsTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Buttons -->
+        <Button
+            android:id="@+id/showOnMapButton"
+            android:text="Show on Map"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/getDirectionsButton"
+            android:text="Get Directions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/shareButton"
+            android:text="Share"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>

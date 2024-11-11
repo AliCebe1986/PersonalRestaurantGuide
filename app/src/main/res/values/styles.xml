@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Uygulamanızın ana teması -->
+    <style name="Theme.PersonalRestaurantGuide" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Tema ayarlarınız -->
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Diğer tema öğeleri -->
+    </style>
+
+    <!-- Splash Ekranı Teması -->
+    <style name="Theme.PersonalRestaurantGuide.Splash" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+</resources>

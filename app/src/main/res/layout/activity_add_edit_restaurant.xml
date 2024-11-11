@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Name EditText -->
+        <EditText
+            android:id="@+id/nameEditText"
+            android:hint="Restaurant Name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:padding="8dp" />
+
+        <!-- Address EditText -->
+        <EditText
+            android:id="@+id/addressEditText"
+            android:hint="Address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:padding="8dp" />
+
+        <!-- Phone EditText -->
+        <EditText
+            android:id="@+id/phoneEditText"
+            android:hint="Telephone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:padding="8dp" />
+
+        <!-- Description EditText -->
+        <EditText
+            android:id="@+id/descriptionEditText"
+            android:hint="Description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:padding="8dp" />
+
+        <!-- Tags EditText -->
+        <EditText
+            android:id="@+id/tagsEditText"
+            android:hint="Tags (separate with commas)"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:padding="8dp" />
+
+        <!-- RatingBar -->
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:numStars="5"
+            android:stepSize="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+
+        <!-- Save Button -->
+        <Button
+            android:id="@+id/saveButton"
+            android:text="Save"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</ScrollView>
