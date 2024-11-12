@@ -1,5 +1,7 @@
 <resources>
-    <string name="app_name">PersonalRestaurantGuide</string>
+    <string name="app_name">Personal Restaurant Guide</string>
     <string name="app_logo_description">Personal Restaurant Guide</string>
     <string name="facebook_app_id">539309435401207</string>
+    <string name="team_members">Members:\n\n1. Ali Cebe\n2. Will Steep\n3. Ryan Luu\n4. Rathish Muthukaruppan</string>
+
 </resources>
