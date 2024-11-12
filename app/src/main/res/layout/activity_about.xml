@@ -38,20 +38,55 @@
                 android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"/>
+                android:layout_marginBottom="16dp"/>
 
-            <!-- Team Members Text -->
+            <!-- Description -->
             <TextView
-                android:id="@+id/teamMembersTextView"
+                android:id="@+id/aboutDescriptionTextView"
+                android:text="Our team consists of dedicated developers passionate about creating useful applications."
+                android:textSize="16sp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Team Members Header -->
+            <TextView
+                android:id="@+id/teamMembersHeaderTextView"
+                android:text="Team Members:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"/>
+
+            <!-- Team Members List -->
+            <TextView
+                android:id="@+id/teamMember1TextView"
+                android:text="• Ali Cebe"
                 android:textSize="16sp"
-                android:padding="8dp"
-                android:text="Our team consists of dedicated developers passionate about creating useful applications.
-                Cebe, Ali
-                Luu, Ryan
-                Muthukaruppan, Rathish
-                Steep, William " />
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/teamMember2TextView"
+                android:text="• Ryan Luu"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/teamMember3TextView"
+                android:text="• Rathish Muthukaruppan"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/teamMember4TextView"
+                android:text="• William Steep"
+                android:textSize="16sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
         </LinearLayout>
     </ScrollView>

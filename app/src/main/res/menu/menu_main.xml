@@ -4,7 +4,7 @@
     <!-- About Menu Item -->
     <item
         android:id="@+id/action_about"
-        android:title="About Us"
+        android:title="About us"
         android:icon="@drawable/ic_info_outline"
-        app:showAsAction="never" />
+        app:showAsAction="always" />
 </menu>
