@@ -35,4 +35,7 @@ public interface RestaurantDao {
     @Query("SELECT * FROM Restaurant WHERE name LIKE '%' || :searchQuery || '%' OR tags LIKE '%' || :searchQuery || '%'")
     List<Restaurant> searchByNameOrTag(String searchQuery);
 
+
+    @Query("SELECT * FROM Restaurant WHERE id = :id")
+    Restaurant getById(int id);
 }

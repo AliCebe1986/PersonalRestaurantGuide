@@ -8,24 +8,31 @@ import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import com.facebook.FacebookSdk;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 
 import ca.gbc.comp3074.personalrestaurantguide.R;
+import ca.gbc.comp3074.personalrestaurantguide.database.AppDatabase;
 import ca.gbc.comp3074.personalrestaurantguide.models.Restaurant;
 
 public class RestaurantDetailsActivity extends AppCompatActivity {
 
     private TextView nameTextView, addressTextView, phoneTextView, descriptionTextView, tagsTextView;
     private RatingBar ratingBar;
-    private Button showOnMapButton, getDirectionsButton, shareButton;
+    private Button showOnMapButton, getDirectionsButton, shareButton, editButton;
     private Restaurant restaurant;
+    private AppDatabase db;
 
     private ShareDialog shareDialog; // Facebook
+
+    private ActivityResultLauncher<Intent> editRestaurantLauncher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +43,8 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
         FacebookSdk.sdkInitialize(getApplicationContext());
         shareDialog = new ShareDialog(this);
 
+        db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "restaurant-database").allowMainThreadQueries().build();
 
         nameTextView = findViewById(R.id.detailsNameTextView);
         addressTextView = findViewById(R.id.detailsAddressTextView);
@@ -46,6 +55,10 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
         showOnMapButton = findViewById(R.id.showOnMapButton);
         getDirectionsButton = findViewById(R.id.getDirectionsButton);
         shareButton = findViewById(R.id.shareButton);
+        editButton = findViewById(R.id.editRestaurant);
+
+
+
 
 
         if (getIntent().hasExtra("restaurant")) {
@@ -63,6 +76,32 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
         tagsTextView.setText(restaurant.getTags());
         ratingBar.setRating(restaurant.getRating());
 
+        editRestaurantLauncher = registerForActivityResult(
+                new ActivityResultContracts.StartActivityForResult(),
+                result -> {
+                    if (result.getResultCode() == RESULT_OK) {
+                        Intent data = result.getData();
+                        if (data != null) {
+                            int updatedRestaurantId = data.getIntExtra("UPDATED_RESTAURANT_ID", -1);
+
+                            if (updatedRestaurantId != -1) {
+                                // Reload the updated restaurant data
+                                restaurant = db.restaurantDao().getById(updatedRestaurantId);
+                                if (restaurant != null) {
+                                    // Update the UI
+                                    nameTextView.setText(restaurant.getName());
+                                    addressTextView.setText(restaurant.getAddress());
+                                    phoneTextView.setText(restaurant.getPhone());
+                                    descriptionTextView.setText(restaurant.getDescription());
+                                    tagsTextView.setText(restaurant.getTags());
+                                    ratingBar.setRating(restaurant.getRating());
+                                }
+                            }
+                        }
+                    }
+                }
+        );
+
 
         showOnMapButton.setOnClickListener(v -> {
             Intent mapIntent = new Intent(RestaurantDetailsActivity.this, MapActivity.class);
@@ -78,6 +117,12 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
         });
 
         shareButton.setOnClickListener(v -> showShareOptions());
+
+        editButton.setOnClickListener(v -> {
+            Intent intent = new Intent(RestaurantDetailsActivity.this, EditRestaurantActivity.class);
+            intent.putExtra("RESTAURANT_ID", restaurant.getId());
+            editRestaurantLauncher.launch(intent);
+        });
     }
 
     private void showShareOptions() {
