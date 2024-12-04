@@ -112,5 +112,21 @@
             android:layout_height="wrap_content"
             android:text="Edit" />
 
+        <Button
+            android:id="@+id/deleteRestaurantButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:background="@drawable/rounded_button"
+            android:drawableLeft="@drawable/ic_trash"
+            android:drawablePadding="8dp"  />
+
+
+
+
+
+
     </LinearLayout>
 </ScrollView>

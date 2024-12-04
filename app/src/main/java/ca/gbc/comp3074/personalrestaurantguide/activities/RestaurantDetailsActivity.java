@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -26,7 +27,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
 
     private TextView nameTextView, addressTextView, phoneTextView, descriptionTextView, tagsTextView;
     private RatingBar ratingBar;
-    private Button showOnMapButton, getDirectionsButton, shareButton, editButton;
+    private Button showOnMapButton, getDirectionsButton, shareButton, editButton, deleteButton;
     private Restaurant restaurant;
     private AppDatabase db;
 
@@ -56,6 +57,7 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
         getDirectionsButton = findViewById(R.id.getDirectionsButton);
         shareButton = findViewById(R.id.shareButton);
         editButton = findViewById(R.id.editRestaurant);
+        deleteButton = findViewById(R.id.deleteRestaurantButton);
 
 
 
@@ -123,7 +125,31 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
             intent.putExtra("RESTAURANT_ID", restaurant.getId());
             editRestaurantLauncher.launch(intent);
         });
+
+        deleteButton.setOnClickListener(v -> showDeleteConfirmationDialog());
+
     }
+
+
+    private void showDeleteConfirmationDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("Delete Restaurant")
+                .setMessage("Are you sure you want to delete this restaurant?")
+                .setPositiveButton("Yes", (dialog, which) -> deleteRestaurant())
+                .setNegativeButton("No", null)
+                .show();
+    }
+
+    private void deleteRestaurant() {
+        if (restaurant != null) {
+            db.restaurantDao().delete(restaurant);
+            Toast.makeText(this, "Restaurant deleted", Toast.LENGTH_LONG).show();
+            finish();
+        } else {
+            Toast.makeText(this, "Restaurant not found", Toast.LENGTH_LONG).show();
+        }
+    }
+
 
     private void showShareOptions() {
 
