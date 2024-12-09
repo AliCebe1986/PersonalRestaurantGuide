@@ -3,8 +3,8 @@
 
 
     <style name="Theme.PersonalRestaurantGuide" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">#99ffcc</item>
+        <item name="colorPrimaryVariant">#99ffcc</item>
         <item name="colorOnPrimary">@color/white</item>
         <item name="popupMenuStyle">@style/PopupMenuStyle</item>
 
